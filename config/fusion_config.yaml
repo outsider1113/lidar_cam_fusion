@@ -1,0 +1,16 @@
+camera:
+  K: [844.0, 0.0, 258.0, 0.0, 844.0, 192.0, 0.0, 0.0, 1.0]
+  dist_coeffs: [0.0, 0.0, 0.0, 0.0, 0.0]
+  img_size: [384, 516]
+extrinsics:
+  R: [0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 1.0, 0.0, 0.0]  # Previous working rotation
+  T: [0.08, 0.1, 0.0]  # Corrected translation (rotated offset)
+topics:
+  camera_image: "/camera_link/image/compressed"
+  lidar_points: "/lgsvl/luminar_front_points"
+  fusion_output: "/fusion/output"
+display:
+  show_lidar_projections: true
+  show_fusion_result_opencv: true
+debug:
+  enabled: true  # Set to true to enable debug mode, false to disable

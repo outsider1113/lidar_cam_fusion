@@ -1,0 +1,2 @@
+float32 depth
+geometry_msgs/Point center
