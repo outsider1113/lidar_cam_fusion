@@ -1,10 +1,9 @@
 # LiDAR-Camera Fusion Node README
 
-Hey there! Welcome to this ROS2 package for fusing LiDAR points with camera images. It's designed to project LiDAR data onto camera frames, run YOLO for object detection, and add depth info to those detections. The whole thing is optimized for GPU if you've got CUDA handy. Let's dive into what everything does, starting with the config file, then the code, and how to use it all.
-
+Hey there! Welcome to this ROS2 package for fusing LiDAR points with camera images. It's designed to project LiDAR data onto camera frames, run YOLO for object detection, and add depth info to those detections. The whole thing is optimized for GPU if you've got CUDA.
 ## Config File: fusion_config.yaml
 
-The `fusion_config.yaml` file is your main setup spot—it's loaded at runtime to configure the node without hardcoding stuff in the Python script. It's located in the `config/` directory and gets installed to the share path so the node can find it easily. Here's a breakdown of each section and what the options are for:
+The `fusion_config.yaml` file is your main setup, it's loaded at runtime to configure the node without hardcoding stuff in the Python script. It's located in the `config/` directory and gets installed to the share path so the node can find it easily. Here's a breakdown of each section and what the options are for:
 
 - **camera**: This handles your camera's internal parameters.
   - `K`: The 3x3 intrinsics matrix (focal lengths, principal point). You need to calibrate your camera beforehand to get this—tools like OpenCV's calibration functions or ROS camera_calibration package work great. No shortcuts here; inaccurate K means wonky projections.
