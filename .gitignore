@@ -1,0 +1,18 @@
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Temp files
+*.swp
+*.tmp
+.DS_Store
+
+# Other unnecessary (add any OSSDC folders here)
+OSSDC-SIM-ART-Linux/
+myenv/
