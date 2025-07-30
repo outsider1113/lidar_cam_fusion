@@ -26,7 +26,7 @@ The `fusion_config.yaml` file is your main setup, it's loaded at runtime to conf
 - **debug**: 
   - `enabled`: If true, enables real-time tweaking of extrinsics using OpenCV trackbars in the "Fusion" window. This is super useful for calibrating on the fly—sliders for translation (T_x, T_y, T_z up to ±5m) and small rotations (pitch, yaw, roll up to ±5°). Adjustments update projections instantly, and values are logged so you can copy them back into the config for permanence. Great for dialing in alignment without restarting the node.
 
-Just a note: The K matrix and dist_coeffs really need to be calibrated properly ahead of time. In a simulation like yours, you can derive K from known FOV and resolution (e.g., focal = width / (2 * tan(FOV/2))), but for real hardware, use a checkerboard pattern.
+Just a note: The K matrix and dist_coeffs really need to be calibrated properly ahead of time. In a simulation, you can derive K from known FOV and resolution (e.g., focal = width / (2 * tan(FOV/2))), but for real hardware, use a checkerboard pattern.
 
 The YOLO model is specified in the code at `model_path = os.path.join(get_package_share_directory("lidar_cam_fusion"), "config", "sim_box.pt")`—so drop your .pt file in the config directory and name it `sim_box.pt`, or tweak the code if you want a different name.
 
