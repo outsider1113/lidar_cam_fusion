@@ -93,4 +93,6 @@ Message format (from msg files):
   - `float32 depth`: Min distance (m) from camera to object (from LiDAR in box).
   - `geometry_msgs/Point center`: Pixel center (x, y; z=0). For left/right: compare x to image width/2 (left if <, right if >, assuming camera centered on car).
 
-That's the basics! If you're setting this up in a sim or real hardware, start with debug enabled to tweak alignments.
+
+
+<img width="1754" height="947" alt="image" src="https://github.com/user-attachments/assets/8b30c3e8-7a7b-4401-ae9d-bdde90f38543" />
