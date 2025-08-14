@@ -9,6 +9,10 @@ topics:
   camera_image: "/camera_link/image/compressed"
   lidar_points: "/lgsvl/luminar_front_points"
   fusion_output: "/fusion/output"
+  depth_output: "/fusion/depth"
+depth:
+  min: 0.5
+  max: 30.0
 display:
   show_lidar_projections: true
   show_fusion_result_opencv: true
