@@ -5,9 +5,9 @@ PyYAML==6.0.1
 pandas==2.0.3
 
 # Deep Learning
-# torch==2.0.1
-# torchvision==0.15.2
-ultralytics==8.0.196
+# torch==2.1.0a0+41361538.nv23.06
+# torchvision==0.16.1
+# ultralytics==8.3.21
 
 
 filterpy==1.4.5
