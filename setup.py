@@ -4,12 +4,14 @@ package_name = 'lidar_cam_fusion'
 
 setup(
     name=package_name,
-    version='0.1.0',
+    version='0.0.0',
     packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # install launch files
         ('share/' + package_name + '/launch', ['launch/fusion.launch.py']),
+        # add any config files you load via get_package_share_directory(...)
         ('share/' + package_name + '/config', ['config/fusion_config.yaml']),
     ],
     install_requires=['setuptools'],
