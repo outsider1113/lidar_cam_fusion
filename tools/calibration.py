@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # Computes the Intrinsic Parameters of the camera
 # Maps Camera frame 3D points onto Image pixel frame 2D positions
@@ -11,6 +12,9 @@ import numpy as np
 from glob import glob
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import os
+os.environ.setdefault("RCUTILS_LOGGING_DIRECTORY", "/tmp/.ros/log")
+os.makedirs(os.environ["RCUTILS_LOGGING_DIRECTORY"], exist_ok=True)
 
 # --- ROS 2 additions (only change in data source) ---
 import rclpy
