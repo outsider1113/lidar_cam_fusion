@@ -90,7 +90,7 @@ class FusionNode(Node):
         # Initialize YOLO model
         model_path = os.path.join(
             get_package_share_directory("lidar_cam_fusion"),
-            "config", "sim_box.pt"
+            "config", "cones_best.pt"
         )
         self.yolo_model = YOLO(model_path)
         if TORCH_CUDA:

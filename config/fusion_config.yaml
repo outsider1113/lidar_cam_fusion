@@ -1,16 +1,20 @@
 camera:
-  K: [392.74496359, 0.0, 254.46293249.0, 0.0, 519.84868605, 227.02712084, 0.0, 0.0, 1.0]
+  K: [392.74496359, 0.0, 254.46293249, 0.0, 519.84868605, 227.02712084, 0.0, 0.0, 1.0]
   dist_coeffs: [0.01393207, -0.01653334, 0.00340514, 0.01334196, -0.20017354]
   img_size: [384, 516]
+
 extrinsics:
-  R: [0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 1.0, 0.0, 0.0]  # Previous working rotation
-  T: [0.05, 0.25, 0.0]  # Corrected translation (rotated offset)
+  R: [-1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+  T: [0.05, 0.25, 0.0]
+
 topics:
-  camera_image: "/camera/color/image_raw"
-  lidar_points: "/livox/lidar
-  fusion_output: "/fusion/output"
+  camera_image: /camera/color/image_raw
+  lidar_points: /livox/lidar
+  fusion_output: /fusion/output
+
 display:
   show_lidar_projections: true
   show_fusion_result_opencv: true
+
 debug:
-  enabled: true  # Set to true to enable debug mode, false to disable
+  enabled: false
