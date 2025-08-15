@@ -93,22 +93,21 @@ class FusionNode(Node):
         self.show_lidar_projections    = bool(display_config['show_lidar_projections'])
         self.show_fusion_result_opencv = bool(display_config['show_fusion_result_opencv'])
 
-        # Device (only if CUDA + torch available)
+
         self.device = torch.device('cuda') if TORCH_CUDA else None
         self.update_transformation_matrices()
 
-        # State
         self.overlay        = None        # for color overlay
         self.frame          = None        # latest RGB frame (BGR for cv2)
         self.last_show_time = 0
 
-        # Pre-alloc for depth image (allocated on first frame)
-        self.depth_img = None  # 32FC1 (meters), np.inf for invalid internally
+        # Pre-alloc
+        self.depth_img = None  # 32FC1 (meters), np.inf for invalid
 
-        # Bridge
+  
         self.bridge = CvBridge()
 
-        # Subscriptions / publishers
+        # sub and pubs
         if self.img_topic_name.endswith("/compressed"):
             self.get_logger().info(f"Subscribing to compressed image topic: {self.img_topic_name}")
             self.image_subscription = self.create_subscription(
@@ -122,7 +121,7 @@ class FusionNode(Node):
 
         self.create_subscription(PointCloud2, self.lidar_topic_name, self.lidar_cb, qos_profile_reliable)
         self.fusion_img_pub  = self.create_publisher(Image, self.fusion_output_topic, 10)   # visualization (BGR8)
-        self.depth_img_pub   = self.create_publisher(Image, self.depth_output_topic, 10)    # RGB-D depth (32FC1)
+        self.depth_img_pub   = self.create_publisher(Image, self.depth_output_topic, 10)    # depth (32FC1)
 
         # Optional window + debug trackbars
         if self.show_fusion_result_opencv:
