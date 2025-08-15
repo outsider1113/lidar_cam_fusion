@@ -6,8 +6,8 @@ extrinsics:
   R: [0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 1.0, 0.0, 0.0]  # Previous working rotation
   T: [0.08, 0.1, 0.0]  # Corrected translation (rotated offset)
 topics:
-  camera_image: "/camera_link/image/compressed"
-  lidar_points: "/lgsvl/luminar_front_points"
+  camera_image: "/camera/color/image_raw"
+  lidar_points: "/livox/lidar
   fusion_output: "/fusion/output"
 display:
   show_lidar_projections: true
