@@ -4,7 +4,7 @@
   <version>0.1.0</version>
   <description>LiDAR × Camera fusion node (RGBD publishing, Foxy)</description>
 
-  <maintainer email="you@example.com">Your Name</maintainer>
+  <maintainer email="angeljoel064@gmail.com">Your Name</maintainer>
   <license>MIT</license>
 
   <!-- Build tools -->

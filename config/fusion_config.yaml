@@ -5,7 +5,7 @@ camera:
 
 extrinsics:
   R: [0.0, -1.0, 0.0, 0.0, 0.0, -1.0, 1.0, 0.0, 0.0]
-  T: [0.0, 0.027, 0.08]
+  T: [0.0, 0.027, -0.08]
 
 topics:
   camera_image: /camera/color/image_raw
@@ -14,7 +14,11 @@ topics:
 
 display:
   show_lidar_projections: true
-  show_fusion_result_opencv: true
-
+  show_fusion_result_opencv: false
+  range_min: 0.3
+  range_max: 6.0
+  splat_size: 5.0
+  temporal_accum_frames: 3
+  temporal_decay: 0.6
 debug:
   enabled: false
