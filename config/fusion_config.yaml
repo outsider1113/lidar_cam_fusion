@@ -1,35 +1,32 @@
-# Simplified configuration for fusion_node_updated.py
-
 camera:
-  # Camera intrinsic matrix in row-major order (3×3)
+  # Intrinsics (row-major)
   K: [392.74496359, 0.0, 254.46293249,
-     0.0, 519.84868605, 227.02712084,
-     0.0, 0.0, 1.0]
-  # Distortion coefficients (k1, k2, p1, p2, k3)
+      0.0, 519.84868605, 227.02712084,
+      0.0, 0.0, 1.0]
   dist_coeffs: [0.01393207, -0.01653334, 0.00340514, 0.01334196, -0.20017354]
-  # Optional: name of the YOLO model file relative to the package's config directory
-  # If omitted, defaults to 'sim_box.pt'
+  # Optional: Ultralytics model file placed under this package's config/
   yolo_model: sim_box.pt
 
 extrinsics:
-  # Rotation matrix from the LiDAR frame to the camera frame (row-major)
+  # LiDAR -> camera rotation (row-major 3x3)
   R: [0.0, -1.0, 0.0,
-     0.0, 0.0, -1.0,
-     1.0, 0.0, 0.0]
-  # Translation vector from LiDAR to camera (in metres)
+      0.0,  0.0, -1.0,
+      1.0,  0.0,  0.0]
+  # LiDAR -> camera translation (meters) as 3x1
   T: [0.0, -0.085, -0.10]
 
 topics:
-  # Incoming colour image topic
   camera_image: /camera/color/image_raw
-  # Incoming LiDAR point cloud topic
   lidar_points: /livox/lidar
-  # Outgoing fused image topic
   fusion_output: /fusion/output
-  # Outgoing detection list topic
   detection_output: /fusion/detections
 
 display:
-  # Minimum and maximum distances (in metres) for colour mapping
+  show_lidar_projections: true   # kept for clarity; points are 1px each
   range_min: 0.3
   range_max: 6.0
+
+sync:
+  # Max time difference allowed by the ApproximateTimeSynchronizer
+  slop_ms: 80    # try 60–100ms; smaller = lower latency, larger = easier pairing
+  queue: 30
